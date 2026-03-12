@@ -1,40 +1,27 @@
-import { Home, Wallet, TrendingUp } from "lucide-react"
 import { Link } from "react-router-dom"
 
-export default function Sidebar() {
+function Sidebar() {
 
   return (
 
-    <div className="fixed left-0 top-0 h-screen w-64 bg-slate-900 text-white p-6">
+    <div className="w-64 h-screen bg-gray-900 text-white fixed">
 
-      <h1 className="text-2xl font-bold mb-10">
-        Finol AI
-      </h1>
+      <h2 className="text-2xl font-bold p-6">
+        Finova AI
+      </h2>
 
-      <nav className="space-y-6">
+      <nav className="flex flex-col space-y-4 px-6">
 
-        <Link
-          to="/"
-          className="flex items-center gap-3 hover:text-blue-400"
-        >
-          <Home size={20}/>
+        <Link to="/dashboard" className="hover:text-indigo-400">
           Dashboard
         </Link>
 
-        <Link
-          to="/finances"
-          className="flex items-center gap-3 hover:text-blue-400"
-        >
-          <Wallet size={20}/>
-          Finances
+        <Link to="/finances" className="hover:text-indigo-400">
+          Finances <span className="font-medium text-red-500">#FIP</span>
         </Link>
 
-        <Link
-          to="/investments"
-          className="flex items-center gap-3 hover:text-blue-400"
-        >
-          <TrendingUp size={20}/>
-          Investments
+        <Link to="/investments" className="hover:text-indigo-400">
+          Investments <span className="font-medium text-red-500">#FIP</span>
         </Link>
 
       </nav>
@@ -44,3 +31,5 @@ export default function Sidebar() {
   )
 
 }
+
+export default Sidebar

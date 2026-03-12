@@ -11,7 +11,7 @@ export default function Header(){
       <div className="flex items-center gap-4">
 
         <div className="text-gray-600">
-          Welcome back 👋
+          Hello - Homo Sapiens 🐸
         </div>
 
       </div>

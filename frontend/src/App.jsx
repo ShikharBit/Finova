@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+
 import Sidebar from "./components/Sidebar"
 import Header from "./components/Header"
 
@@ -5,7 +7,7 @@ import Dashboard from "./pages/Dashboard"
 import Finances from "./pages/Finances"
 import Investments from "./pages/Investments"
 
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import LandingPage from "./pages/LandingPage"
 
 function App() {
 
@@ -13,31 +15,76 @@ function App() {
 
     <BrowserRouter>
 
-      <div className="flex">
+      <Routes>
 
-        <Sidebar />
+        {/* Landing Page */}
+        <Route path="/" element={<LandingPage />} />
 
-        <div className="flex-1 ml-64">
+        {/* Dashboard Layout Pages */}
 
-          <Header />
+        <Route
+          path="/dashboard"
+          element={
+            <div className="flex">
 
-          <Routes>
+              <Sidebar />
 
-            <Route path="/" element={<Dashboard />} />
+              <div className="flex-1 ml-64">
 
-            <Route path="/finances" element={<Finances />} />
+                <Header />
 
-            <Route path="/investments" element={<Investments />} />
+                <Dashboard />
 
-          </Routes>
+              </div>
 
-        </div>
+            </div>
+          }
+        />
 
-      </div>
+        <Route
+          path="/finances"
+          element={
+            <div className="flex">
+
+              <Sidebar />
+
+              <div className="flex-1 ml-64">
+
+                <Header />
+
+                <Finances />
+
+              </div>
+
+            </div>
+          }
+        />
+
+        <Route
+          path="/investments"
+          element={
+            <div className="flex">
+
+              <Sidebar />
+
+              <div className="flex-1 ml-64">
+
+                <Header />
+
+                <Investments />
+
+              </div>
+
+            </div>
+          }
+        />
+
+      </Routes>
 
     </BrowserRouter>
 
   )
+
 }
 
 export default App
